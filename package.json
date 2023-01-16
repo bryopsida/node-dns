@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/bryopsida/node-dns#readme",
   "dependencies": {
+    "dns-packet": "^5.4.0",
     "pino": "^8.8.0"
   },
   "devDependencies": {

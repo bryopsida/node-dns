@@ -1,11 +1,12 @@
 import { createSocket } from 'dgram';
-import { Resolver } from 'node:dns'
+import { Resolver } from 'node:dns/promises'
+import {decode} from 'dns-packet';
 import Pino from 'pino'
 
 const logger = new Pino()
-
 const server = createSocket('udp4')
-
+const upstreamResolver = new Resolver()
+upstreamResolver.setServers(process.env.UPSTREAM_DNS_SERVER != null ? process.env.UPSTREAM_DNS_SERVER.split(',') : ['8.8.8.8'])
 
 // server is ready to receive
 server.on('listening', (msg, info) => {
@@ -13,8 +14,15 @@ server.on('listening', (msg, info) => {
 })
 
 // server message handler
-server.on('message', (msg, info) => {
-    logger.info('Server received a dns query, %s, %s', JSON.stringify(msg), JSON.stringify(info))
+server.on('message', async (msg, info) => {
+    const dnsPacket = decode(msg)
+    for(const question of dnsPacket.questions) {
+        logger.info('Looking up answer for %s requested by %s', question.name, info.address)
+        const result = await upstreamResolver.resolve(question.name, question.type)
+        logger.info('Answer for %s is %s', question.name, result)
+        dnsPacket.answers.push({})
+    }
+    logger.info('Server received a dns query %s %s', dnsPacket.opcode, dnsPacket.questions.map((question) => question.name).join(',', ))
 })
 
 // error handler
