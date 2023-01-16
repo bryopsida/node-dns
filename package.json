@@ -1,0 +1,27 @@
+{
+  "name": "node-dns",
+  "version": "0.1.0",
+  "description": "A Node DNS Server",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "start:dev": "nodemon"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bryopsida/node-dns.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bryopsida/node-dns/issues"
+  },
+  "homepage": "https://github.com/bryopsida/node-dns#readme",
+  "dependencies": {
+    "pino": "^8.8.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
