@@ -1,7 +1,7 @@
 {
-    "watch": ["."],
+    "watch": ["src"],
     "ext": "js,json",
-    "exec": "node --inspect server.js",
+    "exec": "node --inspect src/server.js",
     "delay": 5,
     "signal": "SIGTERM",
     "inspect": "true"

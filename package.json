@@ -5,7 +5,8 @@
   "type": "module",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
+    "test": "jest --coverage",
+    "start": "node src/server.js",
     "start:dev": "nodemon"
   },
   "repository": {
@@ -19,10 +20,12 @@
   },
   "homepage": "https://github.com/bryopsida/node-dns#readme",
   "dependencies": {
+    "config": "^3.3.9",
     "dns-packet": "^5.4.0",
     "pino": "^8.8.0"
   },
   "devDependencies": {
+    "jest": "^29.3.1",
     "nodemon": "^2.0.20"
   }
 }
