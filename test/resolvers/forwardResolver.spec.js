@@ -1,4 +1,4 @@
-import { ForwardResolver } from "../../src/resolvers/forwardResolver.js"
+import { ForwardResolver } from '../../src/resolvers/forwardResolver.js'
 
 const TEST_DNS_SERVER = process.env.TEST_DNS_SERVER ?? '8.8.8.8'
 

@@ -1,5 +1,5 @@
 describe('config', () => {
   describe('config', () => {
-      expect(false).toBeTruthy()
+    expect(false).toBeTruthy()
   })
 })

@@ -40,7 +40,7 @@ server.on('message', async (msg, info) => {
 
 // error handler
 server.on('error', (err) => {
-  logger.error('Server encountered an err')
+  logger.error(err, 'Server encountered an err: %s', err)
 })
 
 // kick it off

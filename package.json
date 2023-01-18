@@ -7,8 +7,8 @@
   "scripts": {
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js --coverage",
     "start": "node src/server.js",
-    "lint": "standard",
-    "lint:fix": "standard --fix",
+    "lint": "standard --env jest",
+    "lint:fix": "standard --fix --env jest",
     "start:dev": "nodemon"
   },
   "repository": {

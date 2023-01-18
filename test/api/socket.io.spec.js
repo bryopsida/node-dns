@@ -1,5 +1,5 @@
 describe('api', () => {
   describe('socket.io', () => {
-      expect(false).toBeTruthy()
+    expect(false).toBeTruthy()
   })
 })
