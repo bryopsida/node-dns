@@ -6,6 +6,6 @@ export class Cache {
   }
 
   async get (key, computer) {
-    return Promise.reject('Method not implemented')
+    return Promise.reject(new Error('Method not implemented'))
   }
 }
