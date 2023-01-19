@@ -44,7 +44,10 @@ describe('resolvers', () => {
         const redisClient = new Redis(redisContainer.getMappedPort(6379), redisContainer.getHost())
         const resolver = new ForwardResolver({
           servers: [TEST_DNS_SERVER],
-          cache: redisClient
+          cache: new PullThroughCache({
+            redisClient,
+            redisPrefix: 'test'
+          })
         })
 
         // set a value
@@ -65,14 +68,17 @@ describe('resolvers', () => {
         const redisClient = new Redis(redisContainer.getMappedPort(6379), redisContainer.getHost())
         const resolver = new ForwardResolver({
           servers: [TEST_DNS_SERVER],
-          cache: redisClient
+          cache: new PullThroughCache({
+            redisClient,
+            redisPrefix: 'test'
+          })
         })
 
         const result = await resolver.resolve({
           type: 'A',
           hostname: '127.0.0.1.nip.io'
         })
-        expect(result).toEqual('127.0.0.1')
+        expect(result).toEqual(['127.0.0.1'])
         redisClient.quit()
         await redisContainer.stop()
       })
