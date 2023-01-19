@@ -7,12 +7,19 @@ export class ForwardResolver extends Resolver {
     if (!opts.servers) throw new Error('opts.servers must be defined')
     this._resolver = new NodeResolver()
     this._resolver.setServers(opts.servers)
+    this._cache = opts.cache
   }
 
-  async resolve (opts) {
+  resolve (opts) {
     try {
       Resolver._validateOpts(opts)
-      return this._resolver.resolve(opts.hostname, opts.type)
+      if (this._cache) {
+        return this._cache.get(`${opts.hostname}:${opts.type}`, () => {
+          return this._resolver.resolve(opts.hostname, opts.type)
+        })
+      } else {
+        return this._resolver.resolve(opts.hostname, opts.type)
+      }
     } catch (err) {
       return Promise.reject(err)
     }
