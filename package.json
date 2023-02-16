@@ -24,7 +24,7 @@
   "dependencies": {
     "config": "^3.3.9",
     "dns-packet": "^5.4.0",
-    "ioredis": "^5.2.5",
+    "ioredis": "^5.2.6",
     "pino": "^8.8.0",
     "socket.io": "^4.5.4"
   },
