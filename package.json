@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "prepare": "husky",
-    "test": "node --test \"**/*.spec.js\" \"*.spec.js\"",
+    "test": "node --test \"src/*.spec.mjs\" \"src/**/*.spec.mjs\"",
     "lint": "standard . && prettier . --check",
     "lint:fix": "standard --fix . && prettier . --write",
     "commit": "cz"
