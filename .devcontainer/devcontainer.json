@@ -1,0 +1,34 @@
+{
+    "name": "Node.js",
+    "build": {
+      "dockerfile": "Dockerfile"
+    },
+    "features": {
+        "ghcr.io/devcontainers/features/docker-in-docker:2": {},
+        "ghcr.io/devcontainers/features/node:1": {
+          "version": "22"
+        },
+        "ghcr.io/devcontainers/features/github-cli:1": {},
+        "ghcr.io/devcontainers/features/common-utils:2": {}
+    }
+    ,
+    "customizations": {
+      "vscode": {
+        "extensions": [
+          "ms-azuretools.vscode-docker",
+          "esbenp.prettier-vscode",
+          "github.vscode-github-actions"
+        ],
+        "settings": {
+          "terminal.integrated.profiles.linux": {
+            "zsh": {
+              "path": "/usr/bin/zsh"
+            }
+          },
+          "terminal.integrated.defaultProfile.linux": "zsh"
+        }
+      }
+    },
+    "forwardPorts": [3000]
+  }
+  

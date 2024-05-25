@@ -1,0 +1,27 @@
+{
+  "name": "@bryopsida/node-dns",
+  "version": "0.1.0",
+  "description": "A DNS server with a focus on being programatically managed and monitored",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "test": "node --test \"**/*.spec.js\" \"*.spec.js\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/bryopsida/node-dns.git"
+  },
+  "keywords": [
+    "dns"
+  ],
+  "author": "bryopsida",
+  "license": "Unlicense",
+  "bugs": {
+    "url": "https://github.com/bryopsida/node-dns/issues"
+  },
+  "homepage": "https://github.com/bryopsida/node-dns#readme",
+  "os": ["darwin", "linux"],
+  "engines": {
+    "node": ">=20"
+  }
+}
